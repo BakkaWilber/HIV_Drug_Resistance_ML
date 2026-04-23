@@ -75,7 +75,10 @@ The dataset originates from a retrospective cohort of HIV patients with confirme
 
 ## Conclusion
 
-The model demonstrates that clinical and treatment variables provide some predictive signal for HIV drug resistance but are insufficient on their own. Drug resistance is fundamentally driven by viral genetic mutations, which were not included in this analysis.
+The model demonstrates that clinical and treatment variables provide some predictive signal for HIV drug resistance but are insufficient on their own. Drug resistance is fundamentally driven by viral genetic mutations, which were not included in this analysis. 
+
+##  Key Takeaway
+Clinical and treatment variables provide limited predictive power for HIV drug resistance. While ART regimen and immune status contribute to risk, accurate prediction requires genetic (mutation-level) data.
 
 ## Future Work
 
