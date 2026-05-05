@@ -66,12 +66,52 @@ The dataset originates from a retrospective cohort of HIV patients with confirme
 - ### Confusion matrix  
 ![Confusion Matrix](Plots/Confusion_Matrix_Plot.png)
 
-##  Limitations
+### Extended Analysis-  Model Comparison
+Additional models were evaluated:
+- Random Forest  
+- Support Vector Machine (SVM)  
+
+Performance was assessed using ROC-AUC.
+
+### Dimensionality Reduction
+- Principal Component Analysis (PCA) applied after encoding  
+- Retained 95% variance (22 → 8 features)  
+
+## Extended Analysis Results
+
+### Model Performance (ROC-AUC)
+
+| Model | ROC-AUC |
+|------|--------|
+| Random Forest | **0.649** |
+| Logistic Regression | 0.627 |
+| SVM | 0.625 |
+
+### Model Performance After PCA
+
+| Model | ROC-AUC (PCA) |
+|------|--------------|
+| Logistic Regression | 0.625 |
+| Random Forest | 0.621 |
+| SVM | 0.606 |
+
+## Key findings of the extended analysis
+
+- Random Forest slightly outperformed logistic regression, indicating the presence of non-linear relationships  
+- Overall performance remained moderate (~0.62–0.65), regardless of model choice  
+- PCA reduced dimensionality but did not improve performance  
+- Tree-based models did not benefit from PCA, likely due to their ability to handle feature interactions  
+
+## Key Takeaway
+
+Clinical and treatment variables alone provide limited predictive power for HIV drug resistance. While factors such as ART regimen and immune status contribute to risk, accurate prediction requires genetic (mutation-level) data.
+
+## Limitations
 
 - No genotypic (mutation-level) data included  
 - Moderate model performance  
 - Observational dataset with potential confounding  
-- Cannot infer causality from associations  
+- Reduced interpretability after PCA  
 
 ## Conclusion
 
