@@ -79,32 +79,32 @@ Performance was assessed using ROC-AUC.
 
 ## Extended Analysis Results
 
-### Model Performance (ROC-AUC)
+### Model Performance Comparison
 
 | Model | ROC-AUC |
 |------|--------|
-| Random Forest | **0.649** |
 | Logistic Regression | 0.627 |
+| Balanced Logistic Regression | 0.629 |
+| LASSO Logistic Regression | 0.635 |
+| Random Forest | 0.649 |
+| XGBoost | **0.649** |
 | SVM | 0.625 |
 
-### Model Performance After PCA
+### PCA Results
 
-| Model | ROC-AUC (PCA) |
-|------|--------------|
-| Logistic Regression | 0.625 |
-| Random Forest | 0.621 |
-| SVM | 0.606 |
+- Original feature count: 22  
+- Reduced feature count after PCA: 8  
+- Variance retained: ~96%  
 
-## Key findings of the extended analysis
+PCA did not improve predictive performance, suggesting that feature redundancy was not the primary limitation in the dataset.
 
-- Random Forest slightly outperformed logistic regression, indicating the presence of non-linear relationships  
-- Overall performance remained moderate (~0.62–0.65), regardless of model choice  
-- PCA reduced dimensionality but did not improve performance  
-- Tree-based models did not benefit from PCA, likely due to their ability to handle feature interactions  
+### Key Observations
 
-## Key Takeaway
-
-Clinical and treatment variables alone provide limited predictive power for HIV drug resistance. While factors such as ART regimen and immune status contribute to risk, accurate prediction requires genetic (mutation-level) data.
+- More advanced models produced only modest improvements over baseline logistic regression  
+- Balanced class weighting improved recall symmetry between classes  
+- LASSO feature selection slightly improved performance while preserving interpretability  
+- XGBoost achieved the best overall performance but still demonstrated moderate predictive ability  
+- The primary limitation appears to be the lack of biologically informative variables rather than model complexity alone  
 
 ## Limitations
 
@@ -117,8 +117,21 @@ Clinical and treatment variables alone provide limited predictive power for HIV 
 
 The model demonstrates that clinical and treatment variables provide some predictive signal for HIV drug resistance but are insufficient on their own. Drug resistance is fundamentally driven by viral genetic mutations, which were not included in this analysis. 
 
-##  Key Takeaway
-Clinical and treatment variables provide limited predictive power for HIV drug resistance. While ART regimen and immune status contribute to risk, accurate prediction requires genetic (mutation-level) data.
+## 💡 Key Takeaway
+This project demonstrates an important principle in biomedical machine learning:
+- Improving model complexity alone cannot compensate for limited biological information within a dataset.
+- While clinical and treatment variables provided some predictive signal, all models plateaued at moderate performance levels, suggesting that the dataset lacked direct biological resistance information. The analysis strongly suggests that mutation-level or genomic data would be required to more accurately model HIV drug resistance mechanisms.
+
+## Analytical Insights
+
+This project evolved beyond simple model building into a broader investigation of dataset limitations and predictive structure.
+
+Key analytical lessons included:
+- the importance of evaluating class imbalance and recall symmetry
+- understanding tradeoffs between sensitivity and balanced classification
+- distinguishing supervised feature selection from unsupervised dimensionality reduction
+- recognizing when models may learn treatment assignment patterns rather than underlying biology
+- identifying feature-space limitations despite increasing model complexity
 
 ## Future Work
 
