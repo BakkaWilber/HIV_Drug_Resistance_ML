@@ -117,7 +117,7 @@ PCA did not improve predictive performance, suggesting that feature redundancy w
 
 The model demonstrates that clinical and treatment variables provide some predictive signal for HIV drug resistance but are insufficient on their own. Drug resistance is fundamentally driven by viral genetic mutations, which were not included in this analysis. 
 
-## 💡 Key Takeaway
+## Key Takeaway
 This project demonstrates an important principle in biomedical machine learning:
 - Improving model complexity alone cannot compensate for limited biological information within a dataset.
 - While clinical and treatment variables provided some predictive signal, all models plateaued at moderate performance levels, suggesting that the dataset lacked direct biological resistance information. The analysis strongly suggests that mutation-level or genomic data would be required to more accurately model HIV drug resistance mechanisms.
